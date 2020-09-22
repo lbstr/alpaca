@@ -12,13 +12,13 @@ WebSocket streams
 
 - [Features](#features)
 - [Install](#install)
-- [Client](#client)
-- [Stream](#stream)
+- [AlpacaClient](#client)
+- [AlpacaStream](#stream)
 
 ## Features
 
 - [x] Fully asynchronous API.
-- [x] Extensible `Client` and `Stream` classes.
+- [x] Extensible `AlpacaClient` and `AlpacaStream` classes.
 - [x] Built-in rate limiting.
 - [x] A 1:1 mapping of the official Alpaca [docs](https://docs.alpaca.markets/).
 
@@ -30,7 +30,7 @@ From NPM:
 > npm i @master-chief/alpaca
 ```
 
-### Client
+### AlpacaClient
 
 #### Creating a new client
 
@@ -38,9 +38,9 @@ If you wish to use env vars, populate these fields with `process.env` on your
 own.
 
 ```typescript
-import { Client } from "@master-chief/alpaca";
+import { AlpacaClient } from "@master-chief/alpaca";
 
-const client = new Client({
+const client = new AlpacaClient({
   credentials: {
     key: "...",
     secret: "...",
@@ -59,7 +59,7 @@ Alpaca provides numbers as strings. From [their docs](https://alpaca.markets/doc
 This package provides numbers as `number` instead, which is what most developers want. If you want the original data, as it came from Alpaca, you can call `raw()` on any entity.
 
 ```javascript
-const client = new Client({ ... }),
+const client = new AlpacaClient({ ... }),
   account = await client.getAccount(),
   rawAccount = account.raw()
 
@@ -327,7 +327,7 @@ await client.getLastQuote({
 });
 ```
 
-## Stream
+## AlpacaStream
 
 #### Creating a new stream
 
@@ -335,9 +335,9 @@ If you wish to use env vars, populate these fields with `process.env` on your
 own.
 
 ```typescript
-import { Stream } from "@master-chief/alpaca";
+import { AlpacaStream } from "@master-chief/alpaca";
 
-const stream = new Stream({
+const stream = new AlpacaStream({
   credentials: {
     key: "...",
     secret: "...",
